@@ -37,4 +37,37 @@ else
 }
 
 
+Console.WriteLine("Шаг 3. continue для пропуска элементов");
+int[] pointsPerLab = { 8, -1, 10, 9, -1, 7 };
+int sum = 0;
+int count = 0;
+foreach (int points in pointsPerLab)
+{
+    if (points < 0)
+    {
+        continue;
+    }
+    sum += points;
+    count++;
+}
+Console.WriteLine($"Сумма баллов за сданные работы: {sum}");
+Console.WriteLine($"Работ было сдано: {count}");
 
+
+Console.WriteLine("Дубликаты в массиве");
+int[] groupIds = { 101, 104, 107, 104, 110, 110 };
+bool hasDuplicates = false;
+
+for (int i = 0; i < groupIds.Length && !hasDuplicates; i++)
+{
+    for (int j = i + 1; j < groupIds.Length; j++)
+    {
+        if (groupIds[i] == groupIds[j])
+        {
+            Console.WriteLine($"Совпавшие номера зачётки: {groupIds[i]} и {groupIds[j]}");
+            hasDuplicates = true;
+            break;
+        }
+    }
+}
+Console.WriteLine(hasDuplicates ? "Есть повторяющиеся номера" : "Все номера уникальны");
