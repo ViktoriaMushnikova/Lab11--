@@ -54,7 +54,7 @@ Console.WriteLine($"Сумма баллов за сданные работы: {s
 Console.WriteLine($"Работ было сдано: {count}");
 
 
-Console.WriteLine("Дубликаты в массиве");
+Console.WriteLine("Шаг 4. Дубликаты в массиве");
 int[] groupIds = { 101, 104, 107, 104, 110, 110 };
 bool hasDuplicates = false;
 
@@ -71,3 +71,95 @@ for (int i = 0; i < groupIds.Length && !hasDuplicates; i++)
     }
 }
 Console.WriteLine(hasDuplicates ? "Есть повторяющиеся номера" : "Все номера уникальны");
+
+
+Console.WriteLine("Шаг 5. Выход сразу из двух циклов");
+int days = 5;
+int lessonsPerDay = 6;
+bool founds = false;
+for (int day = 1; day <= days && !founds; day++)
+{
+    for (int lesson = 1; lesson <= lessonsPerDay; lesson++)
+    {
+        bool isFree = (day == 3 && lesson == 4);
+        if (isFree)
+        {
+            Console.WriteLine($"Свободный слот: день {day}, урок {lesson}");
+            founds = true;
+            break;
+        }
+    }
+}
+if (!founds)
+{
+    Console.WriteLine("Свободных слотов нет");
+}
+
+
+Console.WriteLine("Задача А");
+int[] numbers = { 9, 10, 7, 5 };
+int numberIs = 9;
+bool flag = false;
+for (int k = 0; k < numbers.Length; k++)
+{
+    if (numbers[k] == numberIs)
+    {
+        Console.WriteLine($"Индекс искомого числа: {numbers[k]}");
+        flag = true;
+        break;
+    }
+}
+if (!flag)
+{
+    Console.WriteLine("Искомого числа нет");
+}
+
+
+Console.WriteLine("Задача В");
+int[] num = { 10, 9, 4, 6, 7 };
+int summa = 0;
+foreach (int r in num)
+{
+    if (r % 2 != 0)
+    {
+        continue;
+    }
+    summa += r;
+}
+Console.WriteLine($"Сумма чётных чисел: {summa}");
+
+
+Console.WriteLine("Вариант 8");
+int[] number1 = { 9, 8, 4, 3, 5 };
+int[] number2 = { 1, 2, 10, 12, 9 };
+bool flagNum = false;
+for (int a = 0; a < number1.Length && !flagNum; a++)
+{
+    for (int o = 0; o < number2.Length; o++)
+    {
+        if (number1[a] == number2[o])
+        {
+            Console.WriteLine($"Найдено общее число {number1[a]}");
+            flagNum = true;
+            break;
+        }
+    }
+}
+if (!flagNum)
+{
+    Console.WriteLine("Общее число не найдено");
+}
+
+
+Console.WriteLine("Вариант 9");
+string word = "шалаш";
+bool flagWord = true;
+for (int l = 0; l < word.Length / 2; l++)
+{
+    if (word[l] != word[word.Length - 1 - l])
+    {
+        flagWord = false;
+        break;
+    }
+}
+Console.WriteLine(flagWord ? $"Слово {word} - палиндром" : $"Слово {word} не палиндром");
